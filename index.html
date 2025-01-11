@@ -22,17 +22,16 @@
             background-size: cover;  /* 화면에 맞게 배경 이미지 크기 자동 조정 */
             background-position: center; /* 이미지가 화면 중앙에 위치하게 설정 */
             border: 1px solid #ccc;
-        }
         .icon {
             position: absolute;
-            width: 40px;  /* 아이콘 크기 조정 */
-            height: 40px;
-            background-image: url('Bell.jpg');  /* 이미지 파일을 배경으로 설정 */
-            background-size: cover;  /* 이미지 크기 맞추기 */
-            background-position: center;  /* 이미지 중앙 정렬 */
-            border-radius: 50%;  /* 원 모양으로 설정 */
+            width: 50px;
+            height: 80px; /* 세로 길이를 좀 더 길게 설정 */
+            background-image: url('Bell.jpg'); /* 아이콘 이미지 */
+            background-size: cover;
+            background-position: center;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);  /* 뒤집힌 눈물 모양 */
             cursor: pointer;
-        }
+        }        
 
         #popup {
             display: none;
