@@ -3,26 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>소화기 약도</title>
+    <title>연세 안전 지도</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
         }
         #map {
             position: relative;
-            width: 600px; /* 약도의 가로 크기 */
-            height: 400px; /* 약도의 세로 크기 */
-            background-image: url('yonsei map.jpg'); /* 약도 이미지 파일 이름 */
-            background-size: cover;
-            margin: 20px auto;
+            width: 100%;  /* 화면 크기에 맞게 100%로 설정 */
+            height: 100vh;  /* 화면의 전체 높이를 차지하게 설정 */
+            background-image: url('yonsei map.jpg'); /* 배경 이미지 */
+            background-size: cover;  /* 화면에 맞게 배경 이미지 크기 자동 조정 */
+            background-position: center; /* 이미지가 화면 중앙에 위치하게 설정 */
             border: 1px solid #ccc;
         }
         .icon {
             position: absolute;
-            width: 20px;
-            height: 20px;
-            background: red;
-            border-radius: 50%;
+            width: 25px;  /* 아이콘 크기 설정 */
+            height: 25px;
+            background: red;  /* 아이콘 배경색 */
+            border-radius: 50%;  /* 원 모양 아이콘 */
             cursor: pointer;
         }
         #popup {
@@ -41,11 +47,11 @@
     </style>
 </head>
 <body>
-    <h1 style="text-align: center;">소화기 약도</h1>
+    <h1>연세 안전 지도</h1>
     <div id="map">
         <!-- 소화기 위치를 아이콘으로 표시 -->
-        <div class="icon" style="top: 100px; left: 150px;" data-name="1층 소화기" data-image="Bell.jpg"></div>
-        <div class="icon" style="top: 200px; left: 300px;" data-name="2층 소화기" data-image="Bell.jpg"></div>
+        <div class="icon" style="top: 50%; left: 30%;" data-name="1층 소화기" data-image="Bell.jpg"></div>
+        <div class="icon" style="top: 60%; left: 50%;" data-name="2층 소화기" data-image="Bell.jpg"></div>
     </div>
     <div id="popup">
         <img id="popupImage" src="" alt="소화기 사진">
