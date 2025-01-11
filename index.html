@@ -2,15 +2,15 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>연세 안전 지도</title>
     <style>
-        /* 스크롤 방지 및 화면 고정 */
+        /* 전체 화면 크기 설정 */
         html, body {
             margin: 0;
             padding: 0;
+            height: 100%;
             overflow: hidden;  /* 스크롤 방지 */
-            height: 100%; /* 화면 크기에 맞게 설정 */
         }
 
         body {
@@ -28,7 +28,8 @@
             background-repeat: no-repeat;  /* 이미지가 반복되지 않도록 설정 */
             margin: 0;
         }
-        /* 뒤집힌 눈물 모양 아이콘 */
+
+        /* 아이콘을 상단 반원, 하단 역삼각형 모양으로 설정 */
         .icon {
             position: absolute;
             width: 60px;
@@ -37,8 +38,9 @@
             background-size: cover;
             background-position: center;
             cursor: pointer;
-            clip-path: ellipse(50% 60% at 50% 20%); /* 뒤집힌 눈물 모양 */
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* 상단은 반원, 하단은 역삼각형 */
         }
+
         /* 팝업 창 스타일 */
         #popup {
             display: none;
