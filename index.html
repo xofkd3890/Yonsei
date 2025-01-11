@@ -5,23 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>연세 안전 지도</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* 스크롤 방지 및 화면 고정 */
+        html, body {
             margin: 0;
             padding: 0;
+            overflow: hidden;  /* 스크롤 방지 */
+            height: 100%; /* 화면 크기에 맞게 설정 */
         }
-        h1 {
-            text-align: center;
-            margin-top: 20px;
+
+        body {
+            font-family: Arial, sans-serif;
         }
+
+        /* 맵의 크기와 배경 이미지 */
         #map {
             position: relative;
-            width: 100%;  /* 화면 크기에 맞게 100%로 설정 */
-            height: 100vh;  /* 화면의 전체 높이를 차지하게 설정 */
-            background-image: url('yonsei map.jpg'); /* 배경 이미지 */
-            background-size: cover;  /* 화면에 맞게 배경 이미지 크기 자동 조정 */
-            background-position: center; /* 이미지가 화면 중앙에 위치하게 설정 */
-            border: 1px solid #ccc;
+            width: 100%;  /* 화면 크기에 맞게 설정 */
+            height: 100vh;  /* 화면 높이를 100%로 설정 */
+            background-image: url('yonsei map.jpg');  /* 배경 이미지 */
+            background-size: contain;  /* 이미지 크기 자동 조정 */
+            background-position: center;
+            margin: 0;
+        }
+
+        /* 뒤집힌 눈물 모양 아이콘 */
         .icon {
             position: absolute;
             width: 60px;
@@ -29,11 +36,11 @@
             background-image: url('Bell.jpg'); /* 아이콘 이미지 */
             background-size: cover;
             background-position: center;
-            clip-path: polygon(50% 0%, 100% 20%, 100% 80%, 50% 100%, 0% 80%, 0% 20%); /* 뒤집힌 눈물 모양 */
             cursor: pointer;
+            clip-path: ellipse(50% 60% at 50% 20%); /* 뒤집힌 눈물 모양 */
         }
-       
 
+        /* 팝업 창 스타일 */
         #popup {
             display: none;
             position: absolute;
@@ -50,18 +57,18 @@
     </style>
 </head>
 <body>
-    <h1>연세 안전 지도</h1>
+    <h1 style="text-align: center;">연세 안전 지도</h1>
     <div id="map">
-        <!-- 소화기 위치를 아이콘으로 표시 -->
-        <div class="icon" style="top: 50%; left: 30%;" data-name="1층 소화기" data-image="Bell.jpg"></div>
-        <div class="icon" style="top: 60%; left: 50%;" data-name="2층 소화기" data-image="Bell.jpg"></div>
+        <!-- 소화기 위치 아이콘 설정 -->
+        <div class="icon" style="top: 100px; left: 150px;" data-name="1층 소화기" data-image="Bell.jpg"></div>
+        <div class="icon" style="top: 200px; left: 300px;" data-name="2층 소화기" data-image="Bell.jpg"></div>
     </div>
     <div id="popup">
         <img id="popupImage" src="" alt="소화기 사진">
         <p id="popupText"></p>
     </div>
     <script>
-        // 소화기 아이콘을 클릭하면 팝업을 표시하는 코드
+        // 소화기 아이콘 클릭 시 팝업 표시
         const icons = document.querySelectorAll('.icon');
         const popup = document.getElementById('popup');
         const popupImage = document.getElementById('popupImage');
@@ -81,7 +88,7 @@
             });
         });
 
-        // 팝업 외 다른 곳을 클릭하면 팝업 닫기
+        // 팝업 외의 곳을 클릭하면 팝업 닫기
         document.addEventListener('click', function (e) {
             if (!e.target.classList.contains('icon')) {
                 popup.style.display = 'none';
