@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>연세 안전 지도</title>
     <style>
         /* 전체 화면 크기 설정 */
@@ -10,11 +10,11 @@
             margin: 0;
             padding: 0;
             height: 100%;
-            overflow: hidden;  /* 스크롤 방지 */
         }
 
         body {
             font-family: Arial, sans-serif;
+            overflow: auto;  /* 스크롤 허용 */
         }
 
         /* 맵의 크기와 배경 이미지 */
@@ -29,7 +29,7 @@
             margin: 0;
         }
 
-        /* 아이콘을 상단 반원, 하단 삼각형 모양으로 설정 */
+        /* 아이콘을 상단 반원, 하단 역삼각형 모양으로 설정 */
         .icon {
             position: absolute;
             width: 60px;
@@ -38,7 +38,7 @@
             background-size: cover;
             background-position: center;
             cursor: pointer;
-            clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* 상단은 반원, 하단은 삼각형 */
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* 상단 반원, 하단 역삼각형 */
             border-radius: 50% 50% 0 0; /* 상단을 반원으로 설정 */
         }
 
