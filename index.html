@@ -23,13 +23,13 @@
             width: 100%;  /* 화면 크기에 맞게 설정 */
             height: 100vh;  /* 화면 높이를 100%로 설정 */
             background-image: url('yonsei map.jpg');  /* 배경 이미지 */
-            background-size: cover;  /* 이미지 크기를 화면에 맞게 조정 */
+            background-size: contain;  /* 이미지가 화면 크기에 맞게 조정 */
             background-position: center;  /* 이미지가 화면 중앙에 위치하도록 설정 */
             background-repeat: no-repeat;  /* 이미지가 반복되지 않도록 설정 */
             margin: 0;
         }
 
-        /* 아이콘을 상단 반원, 하단 역삼각형 모양으로 설정 */
+        /* 아이콘을 상단 반원, 하단 삼각형 모양으로 설정 */
         .icon {
             position: absolute;
             width: 60px;
@@ -38,7 +38,8 @@
             background-size: cover;
             background-position: center;
             cursor: pointer;
-            clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* 상단은 반원, 하단은 역삼각형 */
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* 상단은 반원, 하단은 삼각형 */
+            border-radius: 50% 50% 0 0; /* 상단을 반원으로 설정 */
         }
 
         /* 팝업 창 스타일 */
