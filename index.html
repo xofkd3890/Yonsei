@@ -24,14 +24,14 @@
             border: 1px solid #ccc;
         .icon {
             position: absolute;
-            width: 50px;
-            height: 80px; /* 세로 길이를 좀 더 길게 설정 */
+            width: 60px;
+            height: 100px; /* 세로 길이를 길게 설정 */
             background-image: url('Bell.jpg'); /* 아이콘 이미지 */
             background-size: cover;
             background-position: center;
-            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);  /* 뒤집힌 눈물 모양 */
+            clip-path: polygon(50% 0%, 100% 20%, 100% 80%, 50% 100%, 0% 80%, 0% 20%); /* 뒤집힌 눈물 모양 */
             cursor: pointer;
-        }        
+        }       
 
         #popup {
             display: none;
