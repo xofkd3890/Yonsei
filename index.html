@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>소화기 약도</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #map {
+            position: relative;
+            width: 600px; /* 약도의 가로 크기 */
+            height: 400px; /* 약도의 세로 크기 */
+            background-image: url('yonsei map.jpg'); /* 약도 이미지 파일 이름 */
+            background-size: cover;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+        }
+        .icon {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: red;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        #popup {
+            display: none;
+            position: absolute;
+            padding: 10px;
+            background: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        #popup img {
+            max-width: 200px;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">소화기 약도</h1>
+    <div id="map">
+        <!-- 소화기 위치를 아이콘으로 표시 -->
+        <div class="icon" style="top: 100px; left: 150px;" data-name="1층 소화기" data-image="Bell.jpg"></div>
+        <div class="icon" style="top: 200px; left: 300px;" data-name="2층 소화기" data-image="Bell.jpg"></div>
+    </div>
+    <div id="popup">
+        <img id="popupImage" src="" alt="소화기 사진">
+        <p id="popupText"></p>
+    </div>
+    <script>
+        // 소화기 아이콘을 클릭하면 팝업을 표시하는 코드
+        const icons = document.querySelectorAll('.icon');
+        const popup = document.getElementById('popup');
+        const popupImage = document.getElementById('popupImage');
+        const popupText = document.getElementById('popupText');
+
+        icons.forEach(icon => {
+            icon.addEventListener('click', function () {
+                const name = this.getAttribute('data-name');
+                const image = this.getAttribute('data-image');
+
+                popupImage.src = image;
+                popupText.innerText = name;
+
+                popup.style.display = 'block';
+                popup.style.top = `${this.offsetTop + 20}px`;
+                popup.style.left = `${this.offsetLeft + 30}px`;
+            });
+        });
+
+        // 팝업 외 다른 곳을 클릭하면 팝업 닫기
+        document.addEventListener('click', function (e) {
+            if (!e.target.classList.contains('icon')) {
+                popup.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
