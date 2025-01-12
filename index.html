@@ -34,9 +34,7 @@
             position: absolute;
             width: 60px;
             height: 100px; /* 세로 길이를 길게 설정 */
-            background-image: url('Bell.jpg'); /* 아이콘 이미지 */
-            background-size: cover;
-            background-position: center;
+            background-color: red; /* 아이콘의 색상 */
             cursor: pointer;
             clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* 상단 반원, 하단 역삼각형 */
             border-radius: 50% 50% 0 0; /* 상단을 반원으로 설정 */
@@ -59,7 +57,6 @@
     </style>
 </head>
 <body>
-    <h1 style="text-align: center;">연세 안전 지도</h1>
     <div id="map">
         <!-- 소화기 위치 아이콘 설정 -->
         <div class="icon" style="top: 100px; left: 150px;" data-name="1층 소화기" data-image="Bell.jpg"></div>
