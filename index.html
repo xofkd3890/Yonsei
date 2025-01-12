@@ -29,15 +29,18 @@
             margin: 0;
         }
 
-        /* 아이콘을 상단 반원, 하단 역삼각형 모양으로 설정 */
+        /* 아이콘을 원형으로 설정하고 이미지 삽입 */
         .icon {
             position: absolute;
             width: 60px;
-            height: 100px; /* 세로 길이를 길게 설정 */
-            background-color: red; /* 아이콘의 색상 */
+            height: 60px;
+            border-radius: 50%; /* 원형으로 설정 */
+            background-color: #fff; /* 아이콘의 기본 배경색 */
+            background-image: url('Bell.jpg'); /* 아이콘 내부 이미지 */
+            background-size: cover; /* 이미지가 원형에 딱 맞게 설정 */
+            background-position: center; /* 이미지를 중앙에 배치 */
+            border: 2px solid #ccc; /* 테두리 설정 */
             cursor: pointer;
-            clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* 상단 반원, 하단 역삼각형 */
-            border-radius: 50% 50% 0 0; /* 상단을 반원으로 설정 */
         }
 
         /* 팝업 창 스타일 */
